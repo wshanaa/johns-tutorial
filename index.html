@@ -12,83 +12,104 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!--  <link rel="stylesheet" href="css/normalize.css">-->
-<!--  <link rel="stylesheet" href="css/main.css">-->
+  <!--  <link rel="stylesheet" href="css/normalize.css">-->
+  <!--  <link rel="stylesheet" href="css/main.css">-->
 
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+  your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <table id="table" class="table table-dark">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    </tbody>
-  </table>
+<!-- Add your site or application content here -->
+<p>Hello world! This is HTML5 Boilerplate.</p>
+<table id="table" class="table table-dark">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Handle</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td>@fat</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td>Larry</td>
+    <td>the Bird</td>
+    <td>@twitter</td>
+  </tr>
+  </tbody>
+</table>
 
-  <button type="button" class="btn btn-dark" onclick="addRow('table')">Add Row</button>
+<button type="button" class="btn btn-dark" onclick="addRow('table')">Add Row</button>
+<button type="button" class="btn btn-dark" onclick="deleteRow('table')">Delete Last Row</button>
 
-  <script>
-      function addRow(tableID) {
-          // Get a reference to the table
-          let tableRef = document.getElementById(tableID);
+<script>
+    function addRow(tableID) {
+        // Instructions
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/insertRow
 
-          // Insert a row at the end of the table
-          let newRow = tableRef.insertRow(-1);
+        // Get a reference to the table
+        let tableRef = document.getElementById(tableID);
 
-
-          // For loop inserts a cell for each column of the row.
-          // The method insertCell(-1) takes a cell starting a 0.
-          // By passing -1 it always starts at the last cell of the row.
-          for (let i = 0; i < 4; i++) {
-              // Insert a cell in the row at index 0
-              let newCell = newRow.insertCell(-1);
-
-              // Append a text node to the cell
-              let newText = document.createTextNode('New bottom row ' + i);
-              newCell.appendChild(newText);
-          }
-      }  </script>
+        // Insert a row at the end of the table
+        let newRow = tableRef.insertRow(-1);
 
 
+        // For loop inserts a cell for each column of the row.
+        // The method insertCell(-1) takes a cell starting a 0.
+        // By passing -1 it always starts at the last cell of the row.
+        for (let i = 0; i < 4; i++) {
+            // Insert a cell in the row at index 0
+            let newCell = newRow.insertCell(-1);
 
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            // Append a text node to the cell
+            let newText = document.createTextNode('New bottom row ' + i);
+            newCell.appendChild(newText);
+        }
+    }
+
+    function deleteRow(tableID) {
+        // Instructions
+        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteRow
+
+        // Get a reference to the table
+        let tableRef = document.getElementById(tableID);
+
+        // Insert a row at the end of the table
+        let newRow = tableRef.deleteRow(-1);
+    }
+</script>
+
+
+<script src="js/vendor/modernizr-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 </body>
 
